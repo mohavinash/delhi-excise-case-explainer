@@ -1,0 +1,15 @@
+# API keys
+docetl-pipeline/.env
+
+# DocETL cache and output
+docetl-pipeline/output/
+docetl-pipeline/.docetl_cache/
+
+# Playwright
+.playwright-mcp/
+
+# OS
+.DS_Store
+
+# Extracted text (large file)
+judgment_full_text.txt

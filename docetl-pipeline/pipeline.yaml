@@ -1,0 +1,319 @@
+# =============================================================================
+# DELHI EXCISE POLICY JUDGMENT ANALYSIS PIPELINE
+# =============================================================================
+# Analyzes 549-page court order (CBI vs Kuldeep Singh & Others)
+# Models:
+#   - Extraction (map): Gemini 2.0 Flash (fast, cheap)
+#   - Compilation (reduce): Gemini 2.5 Flash (65K output tokens)
+#   - Legal distinction (reduce): Gemini 3.0 Flash (frontier reasoning)
+#   - Blog generation (map): Gemini 2.5 Flash (65K output tokens)
+# Purpose: Extract structured analysis for interactive explainer blog
+# =============================================================================
+
+default_model: gemini/gemini-2.0-flash
+
+system_prompt:
+  dataset_description: >
+    Sections of a 549-page Indian court judgment (Order on Charge) in the Delhi
+    Excise Policy case (CBI Case No. 56/2022). The Special Court at Rouse Avenue,
+    New Delhi discharged all 23 accused on 27.02.2026. The judgment analyzes CBI's
+    allegations of criminal conspiracy in formulating the Delhi Excise Policy 2021-22.
+  persona: >
+    You are a meticulous Indian legal analyst who extracts precise, factual information
+    from court judgments. You cite paragraph numbers. You distinguish between what the
+    prosecution alleged and what the court found. You write in clear, accessible language
+    suitable for a general audience, avoiding unnecessary legal jargon.
+
+rate_limits:
+  llm_call:
+    - count: 4000
+      per: 1
+      unit: minute
+  llm_tokens:
+    - count: 4000000
+      per: 1
+      unit: minute
+
+datasets:
+  judgment:
+    type: file
+    path: "docetl-pipeline/judgment_sections.json"
+
+operations:
+
+  # =========================================================================
+  # STAGE 1: Extract structured information from each section
+  # Model: Gemini 2.0 Flash (default — fast extraction)
+  # =========================================================================
+  - name: extract_section_analysis
+    type: map
+    prompt: |
+      Analyze this section (pages {{ input.start_page }}-{{ input.end_page }}) of the Delhi Excise Policy judgment.
+
+      JUDGMENT TEXT:
+      {{ input.text }}
+
+      Extract the following structured information. For each item, cite the paragraph number(s) where you found it. If an item is not present in this section, return null/empty.
+
+      Focus on:
+      1. **Allegations**: What did the CBI allege in this section?
+      2. **Court findings**: What did the court conclude about those allegations?
+      3. **Accused analysis**: Which accused persons are discussed? What was alleged vs found about them?
+      4. **Evidence evaluation**: What evidence was examined? Was it accepted or rejected? Why?
+      5. **Legal principles**: Any legal standards, precedents, or principles cited?
+      6. **Key quotes**: Verbatim quotes from the judgment that are particularly strong, notable, or quotable (max 5)
+      7. **Investigation criticism**: Any criticism of CBI's investigation methodology?
+      8. **Section type**: Is this primarily about (a) CBI allegations, (b) court's analysis, (c) legal framework, (d) final order, or (e) procedural matters?
+    output:
+      schema:
+        section_type: "enum[allegations,court_analysis,legal_framework,final_order,procedural,mixed]"
+        allegations_found: "list[{allegation: string, accused_involved: string, paragraph_refs: string}]"
+        court_findings: "list[{finding: string, regarding: string, outcome: string, paragraph_refs: string}]"
+        accused_discussed: "list[{accused_number: string, name: string, allegation_summary: string, court_finding: string, paragraph_refs: string}]"
+        evidence_evaluated: "list[{evidence_type: string, description: string, court_ruling: string, reason: string, paragraph_refs: string}]"
+        legal_principles: "list[{principle: string, case_cited: string, application: string, paragraph_refs: string}]"
+        key_quotes: "list[{quote: string, context: string, paragraph_ref: string}]"
+        investigation_criticism: "list[{criticism: string, paragraph_refs: string}]"
+        section_summary: string
+
+  # =========================================================================
+  # STAGE 2: Extract the discharge vs acquittal analysis specifically
+  # Model: Gemini 2.0 Flash (default — fast extraction)
+  # =========================================================================
+  - name: extract_legal_distinction
+    type: map
+    prompt: |
+      This section (pages {{ input.start_page }}-{{ input.end_page }}) is from a judgment where all accused were DISCHARGED (not acquitted).
+
+      JUDGMENT TEXT:
+      {{ input.text }}
+
+      Look specifically for content relevant to the legal distinction between discharge and acquittal:
+      1. Any discussion of the legal standard for framing charges vs discharge
+      2. The threshold of "prima facie case" or "grave suspicion"
+      3. How the court described the strength (or weakness) of the prosecution's case
+      4. Any language suggesting the discharge was effectively as strong as an acquittal
+      5. Discussion of what can happen next (appeals, re-filing, etc.)
+      6. Any discussion comparing the court's findings to what would happen at trial
+
+      If this section doesn't contain relevant material, return has_relevant_content: false.
+    output:
+      schema:
+        has_relevant_content: boolean
+        legal_standard_discussed: string
+        strength_of_language: "enum[routine,moderate,strong,extraordinary]"
+        relevant_passages: "list[{passage: string, significance: string, paragraph_ref: string}]"
+
+  # =========================================================================
+  # STAGE 3: Reduce all section analyses into a comprehensive summary
+  # Model: Gemini 2.5 Flash (65K output tokens, strong reasoning)
+  # No fold needed — 1M input context handles all 55 sections at once
+  # =========================================================================
+  - name: compile_full_analysis
+    type: reduce
+    model: gemini/gemini-2.5-flash
+    reduce_key: case_number
+    timeout: 300
+    litellm_completion_kwargs:
+      max_tokens: 65535
+    prompt: |
+      You have analyzed {{ inputs | length }} sections of the Delhi Excise Policy judgment.
+      Compile a comprehensive, structured analysis suitable for creating an interactive explainer blog.
+
+      SECTION ANALYSES:
+      {% for item in inputs %}
+      --- Section: Pages {{ item.start_page }}-{{ item.end_page }} ---
+      Type: {{ item.section_type }}
+      Summary: {{ item.section_summary }}
+
+      Allegations:
+      {% for a in item.allegations_found %}
+      - {{ a.allegation }} ({{ a.accused_involved }}) [Para {{ a.paragraph_refs }}]
+      {% endfor %}
+
+      Court Findings:
+      {% for f in item.court_findings %}
+      - {{ f.finding }} — Outcome: {{ f.outcome }} [Para {{ f.paragraph_refs }}]
+      {% endfor %}
+
+      Accused Discussed:
+      {% for acc in item.accused_discussed %}
+      - {{ acc.accused_number }} {{ acc.name }}: Alleged: {{ acc.allegation_summary }} | Found: {{ acc.court_finding }} [Para {{ acc.paragraph_refs }}]
+      {% endfor %}
+
+      Key Quotes:
+      {% for q in item.key_quotes %}
+      - "{{ q.quote }}" — {{ q.context }} [Para {{ q.paragraph_ref }}]
+      {% endfor %}
+
+      Investigation Criticism:
+      {% for c in item.investigation_criticism %}
+      - {{ c.criticism }} [Para {{ c.paragraph_refs }}]
+      {% endfor %}
+      {% endfor %}
+
+      Produce a comprehensive JSON output with these sections:
+
+      1. **executive_summary**: 3-4 paragraph overview of the entire case and outcome
+      2. **case_background**: What was the Delhi Excise Policy and what did CBI allege
+      3. **all_accused**: For each of A-1 to A-23, their name, role, allegation, and court finding
+      4. **prosecution_pillars**: The main pillars of CBI's case and how each was evaluated
+      5. **key_evidence_rulings**: Major evidentiary decisions (approver statements, pauti documents, etc.)
+      6. **discharge_analysis**: Why discharge, the strength of the court's language, and what it means
+      7. **investigation_criticism**: Compilation of all criticism of CBI methodology
+      8. **systemic_issues**: Issues flagged for judicial notice (PMLA, election domain, approver abuse, etc.)
+      9. **top_quotes**: The 15 most powerful/quotable passages from the judgment with paragraph refs
+      10. **blog_narrative**: A suggested narrative arc for an explainer blog (section titles and 1-2 sentence descriptions)
+    output:
+      schema:
+        executive_summary: string
+        case_background: string
+        all_accused: "list[{number: string, name: string, role: string, allegation: string, court_finding: string, key_paragraph: string}]"
+        prosecution_pillars: "list[{pillar: string, allegation: string, court_evaluation: string, outcome: string, key_paragraphs: string}]"
+        key_evidence_rulings: "list[{evidence: string, ruling: string, reason: string, paragraph: string}]"
+        discharge_analysis: string
+        investigation_criticism: "list[{issue: string, detail: string, paragraph: string}]"
+        systemic_issues: "list[{issue: string, description: string, constitutional_significance: string, paragraphs: string}]"
+        top_quotes: "list[{quote: string, context: string, paragraph: string}]"
+        blog_narrative: "list[{section_title: string, description: string}]"
+
+  # =========================================================================
+  # STAGE 4: Compile discharge vs acquittal analysis
+  # Model: Gemini 3.0 Flash (frontier reasoning for nuanced legal analysis)
+  # =========================================================================
+  - name: compile_legal_distinction
+    type: reduce
+    model: gemini/gemini-3-flash-preview
+    reduce_key: case_number
+    timeout: 300
+    litellm_completion_kwargs:
+      max_tokens: 65535
+    prompt: |
+      Compile all findings about the discharge vs acquittal distinction from {{ inputs | length }} sections.
+
+      {% for item in inputs %}
+      {% if item.has_relevant_content %}
+      --- Pages {{ item.start_page }}-{{ item.end_page }} ---
+      Legal standard: {{ item.legal_standard_discussed }}
+      Language strength: {{ item.strength_of_language }}
+      Passages:
+      {% for p in item.relevant_passages %}
+      - "{{ p.passage }}" — {{ p.significance }} [Para {{ p.paragraph_ref }}]
+      {% endfor %}
+      {% endif %}
+      {% endfor %}
+
+      Produce a comprehensive analysis of what this discharge means legally:
+      1. The legal standard the court applied
+      2. How the court's language compares to typical discharge orders
+      3. Whether this discharge is functionally equivalent to an acquittal
+      4. What the political debate gets right and wrong
+      5. What can happen next (appeals process)
+      6. The strongest passages supporting the strength of this discharge
+    output:
+      schema:
+        legal_standard: string
+        comparison_to_typical_discharge: string
+        functional_equivalence_to_acquittal: string
+        political_debate_analysis: string
+        what_happens_next: string
+        strongest_passages: "list[{quote: string, significance: string, paragraph: string}]"
+        overall_assessment: string
+
+  # =========================================================================
+  # STAGE 5: Generate blog-ready content sections
+  # Model: Gemini 3.0 Flash (frontier — highest quality content generation)
+  # =========================================================================
+  - name: generate_blog_sections
+    type: map
+    model: gemini/gemini-3-flash-preview
+    timeout: 300
+    litellm_completion_kwargs:
+      max_tokens: 65535
+    prompt: |
+      Using this comprehensive analysis of the Delhi Excise Policy judgment, generate
+      blog-ready content for an interactive explainer.
+
+      FULL ANALYSIS:
+      {{ input.executive_summary }}
+
+      CASE BACKGROUND:
+      {{ input.case_background }}
+
+      PROSECUTION PILLARS:
+      {% for p in input.prosecution_pillars %}
+      - {{ p.pillar }}: {{ p.allegation }} → {{ p.outcome }} [{{ p.key_paragraphs }}]
+      {% endfor %}
+
+      TOP QUOTES:
+      {% for q in input.top_quotes %}
+      - "{{ q.quote }}" [Para {{ q.paragraph }}]
+      {% endfor %}
+
+      INVESTIGATION CRITICISM:
+      {% for c in input.investigation_criticism %}
+      - {{ c.issue }}: {{ c.detail }} [Para {{ c.paragraph }}]
+      {% endfor %}
+
+      SYSTEMIC ISSUES:
+      {% for s in input.systemic_issues %}
+      - {{ s.issue }}: {{ s.description }} [{{ s.paragraphs }}]
+      {% endfor %}
+
+      Generate 8 blog sections. For each section, write the actual content (not a summary) —
+      300-500 words per section, in clear plain language suitable for a general audience.
+      Use the court's own words (with paragraph references) wherever possible.
+      Be OBJECTIVE — do not take sides. Present what the court found.
+
+      Sections:
+      1. "What Just Happened" — Opening hook
+      2. "Discharge vs Acquittal: The Key Distinction" — Center of the explainer
+      3. "What the CBI Alleged" — Plain language summary of prosecution theory
+      4. "The 23 Accused" — Brief profiles
+      5. "What the Court Actually Found" — Section by section analysis of each pillar
+      6. "The Verdict in the Court's Own Words" — Key quotes
+      7. "Issues the Court Flagged" — Systemic concerns
+      8. "So What Does This Mean?" — Neutral conclusion
+    output:
+      schema:
+        blog_sections: "list[{title: string, content: string, key_quotes: list[string], paragraph_refs: list[string]}]"
+
+# =============================================================================
+# PIPELINE DEFINITION
+# =============================================================================
+pipeline:
+  steps:
+    # Step 1: Parallel extraction from each section (Gemini 2.0 Flash)
+    - name: extract_from_sections
+      input: judgment
+      operations:
+        - extract_section_analysis
+
+    # Step 2: Parallel extraction of legal distinction content (Gemini 2.0 Flash)
+    - name: extract_distinction
+      input: judgment
+      operations:
+        - extract_legal_distinction
+
+    # Step 3: Compile full analysis (Gemini 2.5 Flash — 65K output)
+    - name: compile_analysis
+      input: extract_from_sections
+      operations:
+        - compile_full_analysis
+
+    # Step 4: Compile legal distinction analysis (Gemini 3.0 Flash — frontier)
+    - name: compile_distinction
+      input: extract_distinction
+      operations:
+        - compile_legal_distinction
+
+    # Step 5: Generate final blog content (Gemini 2.5 Flash — 65K output)
+    - name: generate_blog
+      input: compile_analysis
+      operations:
+        - generate_blog_sections
+
+  output:
+    type: file
+    path: "docetl-pipeline/output/judgment_analysis.json"
+    intermediate_dir: "docetl-pipeline/output/intermediates"
