@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discharged: The Delhi Excise Policy Case Explained</title>
+<style>
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f5f0e8;
+    --bg-alt: #ece5d8;
+    --bg-card: #ffffff;
+    --text: #1a1a2e;
+    --text-secondary: #4a4a5a;
+    --text-muted: #6b6b7b;
+    --navy: #1a1a2e;
+    --navy-light: #2d2d4a;
+    --slate: #3d3d5c;
+    --accent: #8b0000;
+    --accent-light: #a52a2a;
+    --gold: #b8860b;
+    --gold-light: #daa520;
+    --border: #c5baa6;
+    --border-light: #d8cfbe;
+    --highlight: #fff8dc;
+    --quote-bg: #f0ebe0;
+    --sidenote-bg: #e8e2d6;
+    --green: #2d6a4f;
+    --red: #9b2226;
+    --max-w: 820px;
+    --content-w: 680px;
+  }
+
+  html {
+    font-size: 18px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== LAYOUT ===== */
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .content {
+    max-width: var(--content-w);
+    margin: 0 auto;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    background: var(--navy);
+    color: #fff;
+    padding: 4rem 0 3rem;
+    border-bottom: 4px solid var(--gold);
+  }
+
+  header .container {
+    text-align: center;
+  }
+
+  .header-court {
+    font-family: 'Courier New', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    font-size: 1.15rem;
+    color: #b0b0c8;
+    font-style: italic;
+    max-width: 540px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.5;
+  }
+
+  .header-meta {
+    font-size: 0.7rem;
+    color: #888;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== TABLE OF CONTENTS ===== */
+  .toc {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem 2.5rem;
+    margin: 3rem auto;
+    max-width: var(--content-w);
+  }
+
+  .toc h2 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-family: 'Courier New', monospace;
+  }
+
+  .toc ol {
+    list-style: none;
+    counter-reset: toc-counter;
+  }
+
+  .toc li {
+    counter-increment: toc-counter;
+    margin-bottom: 0.5rem;
+  }
+
+  .toc li::before {
+    content: counter(toc-counter, upper-roman) ".";
+    color: var(--gold);
+    font-weight: 700;
+    margin-right: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .toc a {
+    color: var(--navy);
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .toc a:hover {
+    border-color: var(--gold);
+  }
+
+  /* ===== SECTIONS ===== */
+  section {
+    padding: 3.5rem 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  section:last-of-type {
+    border-bottom: none;
+  }
+
+  .section-number {
+    font-family: 'Courier New', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+    line-height: 1.25;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy-light);
+    margin: 2rem 0 1rem;
+  }
+
+  p {
+    margin-bottom: 1.25rem;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  strong {
+    color: var(--navy);
+  }
+
+  /* ===== SIDENOTES ===== */
+  .sidenote {
+    background: var(--sidenote-bg);
+    border-left: 3px solid var(--gold);
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .sidenote-label {
+    font-family: 'Courier New', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+  }
+
+  /* ===== QUOTE BLOCKS ===== */
+  .court-quote {
+    background: var(--quote-bg);
+    border-left: 4px solid var(--accent);
+    padding: 1.5rem 1.75rem;
+    margin: 2rem 0;
+    font-style: italic;
+    line-height: 1.65;
+    position: relative;
+  }
+
+  .court-quote::before {
+    content: '\201C';
+    font-size: 3rem;
+    color: var(--accent);
+    position: absolute;
+    top: -0.25rem;
+    left: 0.5rem;
+    opacity: 0.3;
+    font-style: normal;
+  }
+
+  .court-quote .para-ref {
+    display: block;
+    font-style: normal;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 0.75rem;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== STAGE SLIDER ===== */
+  .stage-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    margin: 2rem 0;
+  }
+
+  .stage-track {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: 1.5rem 0;
+  }
+
+  .stage-track::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--border);
+    transform: translateY(-50%);
+    z-index: 0;
+  }
+
+  .stage-track .progress-fill {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 3px;
+    background: var(--accent);
+    transform: translateY(-50%);
+    z-index: 1;
+    transition: width 0.4s ease;
+  }
+
+  .stage-node {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    cursor: pointer;
+    flex: 0 0 auto;
+  }
+
+  .stage-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 3px solid var(--border);
+    margin: 0 auto 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .stage-node.active .stage-dot {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(139, 0, 0, 0.15);
+  }
+
+  .stage-node.passed .stage-dot {
+    background: var(--green);
+    border-color: var(--green);
+  }
+
+  .stage-node.current .stage-dot {
+    background: var(--gold);
+    border-color: var(--gold);
+    box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.2);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.2); }
+    50% { box-shadow: 0 0 0 8px rgba(184, 134, 11, 0.1); }
+  }
+
+  .stage-label {
+    font-size: 0.6rem;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    max-width: 80px;
+    line-height: 1.3;
+  }
+
+  .stage-node.current .stage-label {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .stage-description {
+    background: var(--highlight);
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    padding: 1.25rem;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    min-height: 80px;
+    transition: opacity 0.3s;
+  }
+
+  /* ===== COMPARISON TABLE ===== */
+  .comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .comparison-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem;
+    transition: border-color 0.3s;
+  }
+
+  .comparison-card.discharge {
+    border-color: var(--gold);
+  }
+
+  .comparison-card.acquittal {
+    border-color: var(--slate);
+  }
+
+  .comparison-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .comparison-card .badge {
+    font-family: 'Courier New', monospace;
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    font-weight: 700;
+  }
+
+  .badge-gold {
+    background: var(--gold);
+    color: #fff;
+  }
+
+  .badge-slate {
+    background: var(--slate);
+    color: #fff;
+  }
+
+  .comparison-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+  }
+
+  .comparison-card ul {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    padding-left: 1.25rem;
+    line-height: 1.7;
+  }
+
+  /* ===== TIMELINE ===== */
+  .timeline {
+    position: relative;
+    margin: 2.5rem 0;
+    padding-left: 2.5rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 1.75rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -2.5rem;
+    top: 0.35rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--border);
+  }
+
+  .timeline-item.major .timeline-dot {
+    background: var(--accent);
+    border-color: var(--accent);
+    width: 14px;
+    height: 14px;
+    left: calc(-2.5rem - 1px);
+  }
+
+  .timeline-date {
+    font-family: 'Courier New', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+
+  .timeline-title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    color: var(--navy);
+  }
+
+  .timeline-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+  }
+
+  /* ===== ACCUSED GRID ===== */
+  .accused-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+    margin: 2rem 0;
+  }
+
+  .accused-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.85rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  .accused-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .accused-card.expanded {
+    grid-column: 1 / -1;
+    border-color: var(--gold);
+    background: var(--highlight);
+  }
+
+  .accused-num {
+    font-family: 'Courier New', monospace;
+    font-size: 0.6rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    font-weight: 700;
+  }
+
+  .accused-name {
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin: 0.15rem 0;
+    color: var(--navy);
+  }
+
+  .accused-role {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  .accused-detail {
+    display: none;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    text-align: justify;
+  }
+
+  .accused-card.expanded .accused-detail {
+    display: block;
+  }
+
+  .category-tag {
+    font-family: 'Courier New', monospace;
+    font-size: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.1rem 0.4rem;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 0.25rem;
+  }
+
+  .cat-political { background: #e8d5e0; color: #6b2d5b; }
+  .cat-bureaucrat { background: #d5dfe8; color: #2d4a6b; }
+  .cat-business { background: #d5e8d5; color: #2d6b2d; }
+  .cat-intermediary { background: #e8e5d5; color: #6b5a2d; }
+
+  /* ===== FINDING CARDS ===== */
+  .finding {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem 1.75rem;
+    margin: 1.5rem 0;
+  }
+
+  .finding-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+
+  .finding-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .finding-title {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .finding-verdict {
+    font-family: 'Courier New', monospace;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .verdict-rejected {
+    background: #fde8e8;
+    color: var(--red);
+  }
+
+  .finding-body {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    text-align: justify;
+  }
+
+  .finding-body p {
+    margin-bottom: 0.85rem;
+  }
+
+  /* ===== HIGHLIGHT STAT ===== */
+  .stat-row {
+    display: flex;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+
+  .stat-box {
+    flex: 1;
+    min-width: 140px;
+    background: var(--navy);
+    color: #fff;
+    padding: 1.25rem;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    display: block;
+    color: var(--gold-light);
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #aaa;
+    margin-top: 0.25rem;
+  }
+
+  /* ===== ISSUE FLAGS ===== */
+  .issue-flag {
+    background: var(--bg-card);
+    border-left: 4px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    margin: 1.25rem 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .issue-flag h4 {
+    font-size: 0.95rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .issue-flag p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    text-align: justify;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--navy);
+    color: #888;
+    padding: 3rem 0;
+    text-align: center;
+    font-size: 0.75rem;
+    line-height: 1.7;
+    margin-top: 2rem;
+  }
+
+  footer a { color: var(--gold-light); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 680px) {
+    html { font-size: 16px; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.4rem; }
+    .container { padding: 0 1.25rem; }
+    .comparison { grid-template-columns: 1fr; }
+    .accused-grid { grid-template-columns: 1fr 1fr; }
+    .stat-row { gap: 0.75rem; }
+    .stage-label { font-size: 0.5rem; max-width: 55px; }
+    .toc { padding: 1.5rem; }
+  }
+
+  @media (max-width: 420px) {
+    .accused-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ===== SEPARATOR ===== */
+  .ornament {
+    text-align: center;
+    margin: 2rem 0;
+    color: var(--border);
+    font-size: 1.5rem;
+    letter-spacing: 0.5rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="container">
+    <div class="header-court">In the Court of Sh. Jitendra Singh, Special Judge (PC Act) CBI-23 &middot; Rouse Avenue Court Complex, New Delhi</div>
+    <h1>Discharged</h1>
+    <p class="subtitle">What a 549-page judgment in the Delhi Excise Policy case actually says &mdash; and what &ldquo;discharge&rdquo; really means</p>
+    <div class="header-meta">CBI Case No. 56/2022 &middot; CBI vs. Kuldeep Singh &amp; Others &middot; Order dated 27.02.2026</div>
+  </div>
+</header>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<div class="container">
+  <div class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#what-happened">What Just Happened</a></li>
+      <li><a href="#discharge-vs-acquittal">The Key Distinction: Discharge vs. Acquittal</a></li>
+      <li><a href="#the-allegation">What Did the CBI Allege?</a></li>
+      <li><a href="#the-cast">The 23 Accused</a></li>
+      <li><a href="#the-findings">What the Court Actually Found</a></li>
+      <li><a href="#the-verdict">The Verdict, In the Court's Own Words</a></li>
+      <li><a href="#issues-flagged">Issues the Court Flagged</a></li>
+      <li><a href="#what-it-means">So What Does This Mean?</a></li>
+    </ol>
+  </div>
+</div>
+
+<!-- ===== SECTION I: WHAT HAPPENED ===== -->
+<div class="container">
+<div class="content">
+
+<section id="what-happened">
+  <span class="section-number">Section I</span>
+  <h2>What Just Happened</h2>
+
+  <p>On February 27, 2026, a Special Court in New Delhi delivered a <a href="https://www.livelaw.in/pdf_upload/cbi-vs-kuldeep-singh-delhi-excise-policy-case-order-on-charge-585083.pdf" target="_blank" rel="noopener" style="color: var(--accent); border-bottom: 1px solid var(--accent);">549-page order</a> in what is commonly known as the &ldquo;Delhi Excise Policy case&rdquo; or the &ldquo;liquor scam case.&rdquo;</p>
+
+  <p>The Central Bureau of Investigation (CBI) had filed five charge sheets over two years, naming 23 accused persons &mdash; including former Delhi Chief Minister <strong>Arvind Kejriwal</strong>, former Deputy Chief Minister <strong>Manish Sisodia</strong>, BRS leader <strong>K. Kavitha</strong>, bureaucrats, businesspeople, and political workers.</p>
+
+  <p>The CBI alleged a vast conspiracy: that the Delhi Excise Policy 2021-22 had been deliberately manipulated to benefit a group of liquor businessmen, who in return paid approximately <strong>Rs. 90&ndash;100 crores</strong> in illegal gratification &mdash; money that was allegedly funneled to fund the Aam Aadmi Party&rsquo;s campaign in the 2022 Goa Assembly elections.</p>
+
+  <p>After examining nearly <strong>300 prosecution witnesses</strong>, thousands of pages of documents, and hearing arguments over months, Judge Jitendra Singh arrived at a conclusion:</p>
+
+  <div class="court-quote">
+    The material placed on record does not disclose even a prima facie case, much less any grave suspicion, against any of the accused persons. Accordingly, Accused Nos. A-1 to A-23 are discharged of all the offences alleged against them in the present case.
+    <span class="para-ref">Paragraph 1085</span>
+  </div>
+
+  <p>All 23 accused were <strong>discharged</strong>. Not acquitted &mdash; discharged. That distinction matters, and it is precisely what this explainer is about.</p>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <span class="stat-number">23</span>
+      <span class="stat-label">Accused Persons</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-number">5</span>
+      <span class="stat-label">Charge Sheets</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-number">~300</span>
+      <span class="stat-label">Prosecution Witnesses</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-number">549</span>
+      <span class="stat-label">Pages in Order</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION II: DISCHARGE VS ACQUITTAL ===== -->
+<section id="discharge-vs-acquittal">
+  <span class="section-number">Section II</span>
+  <h2>The Key Distinction: Discharge vs. Acquittal</h2>
+
+  <p>In the days following the order, a debate erupted: <em>Is this an acquittal, or is it &ldquo;merely&rdquo; a discharge?</em> Some argued that discharge simply means there wasn&rsquo;t enough evidence &mdash; implying the accused may still be guilty. Others called it a complete vindication.</p>
+
+  <p>To understand what actually happened, you need to understand how a criminal case works in India. Every case passes through a series of stages &mdash; and where a case ends tells you a great deal about how strong or weak it was.</p>
+
+  <h3>The Stages of a Criminal Case</h3>
+
+  <div class="stage-container">
+    <div class="stage-track" id="stageTrack">
+      <div class="progress-fill" id="progressFill" style="width: 37%"></div>
+      <div class="stage-node passed" data-stage="0" onclick="setStage(0)">
+        <div class="stage-dot"></div>
+        <div class="stage-label">FIR Filed</div>
+      </div>
+      <div class="stage-node passed" data-stage="1" onclick="setStage(1)">
+        <div class="stage-dot"></div>
+        <div class="stage-label">Investigation</div>
+      </div>
+      <div class="stage-node passed" data-stage="2" onclick="setStage(2)">
+        <div class="stage-dot"></div>
+        <div class="stage-label">Charge Sheet Filed</div>
+      </div>
+      <div class="stage-node current" data-stage="3" onclick="setStage(3)">
+        <div class="stage-dot"></div>
+        <div class="stage-label">Charge Hearing</div>
+      </div>
+      <div class="stage-node" data-stage="4" onclick="setStage(4)">
+        <div class="stage-dot"></div>
+        <div class="stage-label">Trial</div>
+      </div>
+      <div class="stage-node" data-stage="5" onclick="setStage(5)">
+        <div class="stage-dot"></div>
+        <div class="stage-label">Verdict</div>
+      </div>
+    </div>
+    <div class="stage-description" id="stageDesc">
+      <strong>Charge Hearing (Order on Charge)</strong> &mdash; This is where the Delhi Excise Policy case ended. The judge examines all prosecution material and asks: <em>Is there enough here to put these people through a full trial?</em> The standard is &ldquo;grave suspicion&rdquo; &mdash; not proof beyond doubt, but a reasonable basis for suspicion. If even this low bar isn&rsquo;t met, the accused are <strong>discharged</strong>. The case never reaches trial.
+    </div>
+  </div>
+
+  <p>Click on any stage above to understand what happens at each step.</p>
+
+  <h3>The Difference, Plainly</h3>
+
+  <div class="comparison">
+    <div class="comparison-card discharge">
+      <h4><span class="badge badge-gold">This Case</span> Discharge</h4>
+      <p>The case is thrown out <strong>before trial begins</strong>. The judge reviews the prosecution&rsquo;s evidence and decides there isn&rsquo;t enough to even justify putting the accused through a trial.</p>
+      <ul>
+        <li>Happens at the &ldquo;charge&rdquo; stage</li>
+        <li>Standard: &ldquo;grave suspicion&rdquo; (lower than trial standard)</li>
+        <li>The prosecution failed to cross <strong>even this lower bar</strong></li>
+        <li>CBI can appeal this order in the High Court</li>
+      </ul>
+    </div>
+    <div class="comparison-card acquittal">
+      <h4><span class="badge badge-slate">Not This</span> Acquittal</h4>
+      <p>The case goes to <strong>full trial</strong>. Both sides present evidence, witnesses are cross-examined, and the judge delivers a verdict after weighing everything.</p>
+      <ul>
+        <li>Happens after a complete trial</li>
+        <li>Standard: &ldquo;proof beyond reasonable doubt&rdquo;</li>
+        <li>A finding of &ldquo;not guilty&rdquo; after hearing everything</li>
+        <li>Prosecution can appeal, but with a higher burden</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>So Is Discharge &ldquo;Lesser&rdquo; Than Acquittal?</h3>
+
+  <p>Technically, a discharge is a pre-trial finding, while an acquittal comes after trial. In that narrow sense, they are different legal outcomes at different stages.</p>
+
+  <p>But consider what happened here. The court did not merely say &ldquo;there&rsquo;s insufficient evidence to proceed.&rdquo; After examining nearly 300 witnesses and voluminous documentary material over several months, the court used language that goes far beyond a routine discharge:</p>
+
+  <div class="court-quote">
+    The Excise Policy case, as sought to be projected by the CBI, is wholly unable to survive judicial scrutiny and stands discredited in its entirety.
+    <span class="para-ref">Paragraph 1077</span>
+  </div>
+
+  <div class="court-quote">
+    The alleged conspiracy, from its very inception, has progressively unravelled and, upon close scrutiny, is revealed to be nothing more than a speculative construct resting on conjecture and surmise, devoid of any admissible evidence.
+    <span class="para-ref">Paragraph 1078</span>
+  </div>
+
+  <p>The court found the prosecution couldn&rsquo;t clear even the <em>lowest</em> evidentiary threshold in criminal law &mdash; &ldquo;prima facie case&rdquo; (a basic case at face value). The judge wrote that he went through every single witness, expecting to find <em>something</em>, and found nothing:</p>
+
+  <div class="court-quote">
+    It soon became apparent that no such material emerged at any intermediate stage, compelling the Court to undertake a comprehensive examination of the statement of each witness until the very last. What stands out on such scrutiny is the conspicuous absence of any fact or circumstance which could legitimately give rise to even a foundational suspicion.
+    <span class="para-ref">Paragraph 1067</span>
+  </div>
+
+  <div class="sidenote">
+    <span class="sidenote-label">Legal Context</span>
+    At the charge stage, the court is supposed to take the prosecution&rsquo;s case at face value &mdash; it doesn&rsquo;t weigh evidence the way a trial does. Even with this generous standard, the court found nothing. This is why the judge described a hypothetical trial as a &ldquo;manifest miscarriage of justice and an abuse of the criminal process.&rdquo; (Para 1077)
+  </div>
+</section>
+
+<!-- ===== SECTION III: THE ALLEGATION ===== -->
+<section id="the-allegation">
+  <span class="section-number">Section III</span>
+  <h2>What Did the CBI Allege?</h2>
+
+  <p>The CBI&rsquo;s theory, built across one main charge sheet and four supplementary ones filed between November 2022 and July 2024, can be summarised as follows:</p>
+
+  <h3>The Policy</h3>
+  <p>In 2021, the Delhi Government overhauled its excise (liquor) policy. The new policy &mdash; the Delhi Excise Policy 2021-22 (DEP-21/22) &mdash; separated the roles of manufacturer, wholesaler, and retailer. Retail zones were to be auctioned through competitive e-tender. The aim, officially, was to curb monopoly and improve revenue.</p>
+
+  <h3>The Alleged Conspiracy</h3>
+  <p>The CBI alleged that the policy was not a genuine reform but a <strong>corrupt scheme</strong> designed to benefit a group of liquor businessmen from South India (whom the CBI labelled the &ldquo;South Group&rdquo;). The alleged conspiracy had several pillars:</p>
+
+  <div class="finding">
+    <div class="finding-header">
+      <span class="finding-icon">1.</span>
+      <span class="finding-title">Policy Manipulation</span>
+    </div>
+    <div class="finding-body">
+      <p>The CBI alleged that Deputy CM Manish Sisodia (A-8) manipulated the policy&rsquo;s provisions &mdash; specifically the wholesale margin (set at 12%), the turnover eligibility for wholesale licences, and the definition of &ldquo;related entities&rdquo; &mdash; to benefit the South Group. He allegedly sidelined an expert committee&rsquo;s recommendations, suppressed adverse legal opinions, and personally drafted GoM (Group of Ministers) reports based on inputs from the conspirators.</p>
+    </div>
+  </div>
+
+  <div class="finding">
+    <div class="finding-header">
+      <span class="finding-icon">2.</span>
+      <span class="finding-title">Illegal Gratification of Rs. 90&ndash;100 Crores</span>
+    </div>
+    <div class="finding-body">
+      <p>In exchange for these policy favours, the South Group allegedly paid Rs. 90&ndash;100 crores as &ldquo;upfront money&rdquo; to AAP through intermediary Vijay Nair (A-3). The payments allegedly came through cash deliveries, hawala channels, and angadiya (informal cash courier) networks.</p>
+    </div>
+  </div>
+
+  <div class="finding">
+    <div class="finding-header">
+      <span class="finding-icon">3.</span>
+      <span class="finding-title">Money Routing to Goa Elections</span>
+    </div>
+    <div class="finding-body">
+      <p>About Rs. 44.54 crores of this money was allegedly routed from Delhi to Goa &mdash; through hawala operators and angadiya firms &mdash; to fund AAP&rsquo;s 2022 Goa Assembly Election campaign. This money allegedly paid for campaign workers, vendors, booth managers, and candidates&rsquo; expenses.</p>
+    </div>
+  </div>
+
+  <div class="finding">
+    <div class="finding-header">
+      <span class="finding-icon">4.</span>
+      <span class="finding-title">Recoupment of Funds</span>
+    </div>
+    <div class="finding-body">
+      <p>The South Group allegedly recouped its &ldquo;investment&rdquo; through the wholesale profits of M/S Indospirits (which earned Rs. 47.68 crores in net profits on a turnover of Rs. 1,333 crores), a sham land deal worth Rs. 14 crores, and CSR contributions to a connected NGO.</p>
+    </div>
+  </div>
+
+  <h3>The Charge Sheet Timeline</h3>
+
+  <div class="timeline">
+    <div class="timeline-item major">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">17 Aug 2022</div>
+      <div class="timeline-title">FIR Registered</div>
+      <div class="timeline-desc">CBI registers FIR based on MHA complaint against excise officials and private persons</div>
+    </div>
+    <div class="timeline-item major">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">25 Nov 2022</div>
+      <div class="timeline-title">Main Charge Sheet</div>
+      <div class="timeline-desc">Names A-1 to A-7: Two bureaucrats, Vijay Nair, and four South Group members/businessmen</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">25 Apr 2023</div>
+      <div class="timeline-title">1st Supplementary</div>
+      <div class="timeline-desc">Adds A-8 (Manish Sisodia), A-9, A-10, A-11. Focuses on policy manipulation and destruction of phones</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">10 Jul 2023</div>
+      <div class="timeline-title">2nd Supplementary</div>
+      <div class="timeline-desc">Adds A-12 to A-16. Focuses on Rs. 44.54 crore Goa election money trail through hawala/angadiya</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">7 Jun 2024</div>
+      <div class="timeline-title">3rd Supplementary</div>
+      <div class="timeline-desc">Adds A-17 (K. Kavitha). Alleges Rs. 100 crore demand, sham land deal, proxy stake in Indospirits</div>
+    </div>
+    <div class="timeline-item major">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">30 Jul 2024</div>
+      <div class="timeline-title">4th Supplementary</div>
+      <div class="timeline-desc">Adds A-18 (Arvind Kejriwal), A-19 to A-23. Alleges CM&rsquo;s meeting with Magunta, policy oversight role, Goa fund role</div>
+    </div>
+    <div class="timeline-item major">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">27 Feb 2026</div>
+      <div class="timeline-title">Order on Charge: All Discharged</div>
+      <div class="timeline-desc">Court finds &ldquo;not even a prima facie case&rdquo; &mdash; all 23 accused discharged of all offences</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION IV: THE CAST ===== -->
+<section id="the-cast">
+  <span class="section-number">Section IV</span>
+  <h2>The 23 Accused</h2>
+
+  <p>Click on any name to see their alleged role and what the court found.</p>
+
+  <div class="accused-grid" id="accusedGrid">
+
+    <div class="accused-card" onclick="toggleAccused(this)">
+      <span class="category-tag cat-political">Political</span>
+      <div class="accused-num">A-18</div>
+      <div class="accused-name">Arvind Kejriwal</div>
+      <div class="accused-role">Then Chief Minister of Delhi</div>
+      <div class="accused-detail">
+        <strong>CBI alleged:</strong> Approved the excise policy; met liquor businessman Magunta Sreenivasulu Reddy and directed him to K. Kavitha; played a role in routing funds to Goa elections.<br><br>
+        <strong>Court found:</strong> &ldquo;No contemporaneous document, file noting, electronic communication, financial transaction or digital evidence has been produced to directly or indirectly connect A-18 with any alleged policy manipulation or illegal gratification.&rdquo; (Para 507). The prosecution&rsquo;s own chief approver (PW-20) &mdash; who claimed knowledge from policy formulation to fund utilization &mdash; attributed no role to Kejriwal. The only evidence was the uncorroborated statement of one accomplice-like witness. (Paras 508-513)
+      </div>
+    </div>
+
+    <div class="accused-card" onclick="toggleAccused(this)">
+      <span class="category-tag cat-political">Political</span>
+      <div class="accused-num">A-8</div>
+      <div class="accused-name">Manish Sisodia</div>
+      <div class="accused-role">Then Deputy CM &amp; Excise Minister</div>
+      <div class="accused-detail">
+        <strong>CBI alleged:</strong> &ldquo;Principal architect&rdquo; of the policy manipulation &mdash; sidelined expert committee, suppressed legal opinions, drafted GoM reports based on South Group inputs, destroyed mobile phones.<br><br>
+        <strong>Court found:</strong> The policy went through prescribed institutional channels including LG approval. The legal opinions did not oppose the policy&rsquo;s final form. The 12% margin actually <em>curtailed</em> flexibility. &ldquo;No admissible material demonstrates his involvement in any alleged cash transaction.&rdquo; (Para 386). &ldquo;A charge of unilateral manipulation cannot logically and legally be sustained against the Deputy Chief Minister alone when the documentary chain demonstrates deliberation, consultation and processing through the office of the Hon&rsquo;ble LG.&rdquo; (Para 389)
+      </div>
+    </div>
+
+    <div class="accused-card" onclick="toggleAccused(this)">
+      <span class="category-tag cat-political">Political</span>
+      <div class="accused-num">A-17</div>
+      <div class="accused-name">K. Kavitha</div>
+      <div class="accused-role">BRS Leader (Telangana)</div>
+      <div class="accused-detail">
+        <strong>CBI alleged:</strong> Demanded Rs. 100 crores; collected Rs. 25 crores; held proxy 32.5% stake in Indospirits through A-5; recouped Rs. 14 crores through sham land deal.<br><br>
+        <strong>Court found:</strong> Five admitted facts: she never attended any meeting in Delhi, never attended any meeting in Hyderabad, never met Sisodia, never met Kejriwal during the conspiracy period, and did not come to Delhi during the relevant period (Para 872). The land deal was never consummated and the advance was returned. The proxy theory rested on &ldquo;conjectural extensions of association.&rdquo; (Para 860). &ldquo;Courts cannot permit the force of a narrative to replace the discipline of evidence.&rdquo; (Para 885)
+      </div>
+    </div>
+
+    <div class="accused-card" onclick="toggleAccused(this)">
+      <span class="category-tag cat-political">Political</span>
+      <div class="accused-num">A-19</div>
+      <div class="accused-name">Durgesh Pathak</div>
+      <div class="accused-role">AAP Goa In-charge</div>
+      <div class="accused-detail">
+        <strong>CBI alleged:</strong> Role in transfer and utilization of election funds in Goa.<br><br>
+        <strong>Court found:</strong> No material shows he &ldquo;either provided cash, arranged cash, directed cash payments, or acted as a conduit&rdquo; (Para 895). A political party funding its candidates&rsquo; campaigns is legally permissible under the Representation of the People Act. The court &ldquo;expresses its serious disapproval&rdquo; of how the agency sought to implicate him (Para 900).
+      </div>
+    </div>
+
+    <div class="accused-card" onclick="toggleAccused(this)">
+      <span class="category-tag cat-intermediary">Intermediary</span>
+      <div class="accused-num">A-3</div>
+      <div class="accused-name">Vijay Nair</div>
+      <div class="accused-role">AAP Communications In-charge</div>
+      <div class="accused-detail">
+        <strong>CBI alleged:</strong> &ldquo;Central facilitator&rdquo; who negotiated the Rs. 90&ndash;100 crore gratification with the South Group; pressured Pernod Ricard to appoint Indospirits.<br><br>
+        <strong>Court found:</strong> He held no official authority. Pernod Ricard went ahead and rejected his views. He is not alleged to have &ldquo;personally paid any bribe, directly received any upfront amount, or derived any identifiable pecuniary benefit&rdquo; (Para 575). &ldquo;There is no admissible material establishing payment of any bribe.&rdquo; (Para 578)
+      </div>
+    </div>
+
+    <div class="accused-card" onclick="toggleAccused(this)">
+      <span class="category-tag cat-bureaucrat">Bureaucrat</span>
+      <div class="accused-num">A-1</div>
+      <div class="accused-name">Kuldeep Singh</div>
+      <div class="accused-role">Then Dy. Commissioner, IMFL</div>
+      <div class="accused-detail">
+        <strong>CBI alleged:</strong> Facilitated L-1 licence to Indospirits, bypassed safeguards.<br><br>
+        <strong>Court found:</strong> Licence was granted &ldquo;strictly in accordance with the notified eligibility criteria&rdquo; (Para 945). Three entities were cleared on the same day due to the policy&rsquo;s implementation timeline. The court recommended &ldquo;departmental proceedings against the erring investigating officer for framing A-1 as an accused in the absence of any material against him&rdquo; (Para 475).
+      </div>
+    </div>
+
+    <div class="accused-card" onclick="toggleAccused(this)">
+      <span class="category-tag cat-bureaucrat">Bureaucrat</span>
+      <div class="accused-num">A-2</div>
+      <div class="accused-name">Narender Singh</div>
+      <div class="accused-role">Then Asst. Commissioner, IMFL</div>
+      <div class="accused-detail">
+        <strong>CBI alleged:</strong> Accepted Rs. 30 lakhs bribe from Indospirits&rsquo; Sameer Mahendru.<br><br>
+        <strong>Court found:</strong> The Rs. 30 lakhs allegation was &ldquo;plainly hearsay&rdquo; &mdash; the approver heard it second-hand and never witnessed it. The allegation did not appear in any of the approver&rsquo;s first three statements; it first surfaced in a fourth statement months later (Para 466).
+      </div>
+    </div>
+
+    <div class="accused-card" onclick="toggleAccused(this)">
+      <span class="category-tag cat-business">Business</span>
+      <div class="accused-num">A-7</div>
+      <div class="accused-name">Sameer Mahendru</div>
+      <div class="accused-role">Owner, M/S Indospirits</div>
+      <div class="accused-detail">
+        <strong>CBI alleged:</strong> Major beneficiary; earned Rs. 47.68 crores through the conspiratorially-designed L-1 licence; paid Rs. 30 lakhs bribe.<br><br>
+        <strong>Court found:</strong> He was not present at any of the three key alleged conspiracy meetings (Para 620). The eligibility criteria that the South Group allegedly influenced would have <em>disqualified</em> Indospirits (Para 627). The policy produced regulatory impediments for Indospirits, not favours (Para 623).
+      </div>
+    </div>
+
+    <div class="accused-card" onclick="toggleAccused(this)">
+      <span class="category-tag cat-business">Business</span>
+      <div class="accused-num">A-4</div>
+      <div class="accused-name">Abhishek Boinpally</div>
+      <div class="accused-role">Alleged &ldquo;South Group&rdquo; member</div>
+      <div class="accused-detail">
+        <strong>CBI alleged:</strong> Coordinator for the South Group; sent Rs. 20&ndash;30 crores via hawala.<br><br>
+        <strong>Court found:</strong> His business dealings with media companies pre-dated the alleged conspiracy by months (from October 2020). The trademark and media transactions had documented commercial basis. The money trail to the alleged conspiracy was not established.
+      </div>
+    </div>
+
+    <div class="accused-card" onclick="toggleAccused(this)">
+      <span class="category-tag cat-business">Business</span>
+      <div class="accused-num">A-5</div>
+      <div class="accused-name">Arun R. Pillai</div>
+      <div class="accused-role">Alleged &ldquo;South Group&rdquo;, Indospirits partner</div>
+      <div class="accused-detail">
+        <strong>CBI alleged:</strong> Held 65% stake in Indospirits as proxy for A-17; received disproportionate 61% of profits.<br><br>
+        <strong>Court found:</strong> Profit distribution was documented by a contemporaneous letter that all partners agreed to. &ldquo;There exists no principle in law which mandates that profit distribution must invariably mirror shareholding percentages.&rdquo; (Para 614)
+      </div>
+    </div>
+
+    <div class="accused-card" onclick="toggleAccused(this)">
+      <span class="category-tag cat-business">Business</span>
+      <div class="accused-num">A-6</div>
+      <div class="accused-name">Mootha Goutam</div>
+      <div class="accused-role">Received funds from A-5</div>
+      <div class="accused-detail">
+        <strong>Court found:</strong> &ldquo;The prosecution does not allege that he participated in the conspiracy, nor does it attribute to him knowledge of the alleged conspiracy.&rdquo; He received funds through disclosed banking channels. The court found the investigation &ldquo;expanded beyond its legitimate scope&rdquo; for A-6 (Para 720).
+      </div>
+    </div>
+
+    <div class="accused-card" onclick="toggleAccused(this)">
+      <span class="category-tag cat-business">Business</span>
+      <div class="accused-num">A-9</div>
+      <div class="accused-name">Amandeep Singh Dhall</div>
+      <div class="accused-role">Connected with M/S BSPL</div>
+      <div class="accused-detail">
+        <strong>Court found:</strong> Not placed at any key meeting by any witness. Ironically, he sponsored a Supreme Court petition <em>challenging</em> the very cartelisation the conspiracy allegedly sought &mdash; conduct &ldquo;fundamentally inconsistent&rdquo; with conspiratorial alignment (Para 764). Credit notes he issued were lawful under the policy.
+      </div>
+    </div>
+
+    <div class="accused-card" onclick="toggleAccused(this)">
+      <span class="category-tag cat-intermediary">Intermediary</span>
+      <div class="accused-num">A-10</div>
+      <div class="accused-name">Arjun Pandey</div>
+      <div class="accused-role">Associated with media companies</div>
+      <div class="accused-detail">
+        <strong>Court found:</strong> A prosecution witness stated he &ldquo;remained silent throughout&rdquo; the only meeting he attended (Para 770). Payments from Indospirits to India Ahead News were normal commercial transactions. &ldquo;Mere presence, without attribution of any incriminating act or role, cannot be elevated to an inference of conspiracy.&rdquo;
+      </div>
+    </div>
+
+    <div class="accused-card" onclick="toggleAccused(this)">
+      <span class="category-tag cat-business">Business</span>
+      <div class="accused-num">A-11</div>
+      <div class="accused-name">Butchibabu Gorantla</div>
+      <div class="accused-role">CA, alleged &ldquo;South Group&rdquo;</div>
+      <div class="accused-detail">
+        <strong>CBI alleged:</strong> WhatsApp chats about &ldquo;policy tweaking&rdquo; proved involvement in drafting favourable provisions.<br><br>
+        <strong>Court found:</strong> The chats were personal notes sent from one of his devices to another. The expression &ldquo;policy tweaking&rdquo; in context referred to hiring a consultant for commercial due diligence, not authoring government policy (Para 809-814). The GoM Report had already been prepared before the 20.03.2021 chats (Para 825).
+      </div>
+    </div>
+
+    <div class="accused-card" onclick="toggleAccused(this)">
+      <span class="category-tag cat-intermediary">Intermediary</span>
+      <div class="accused-num">A-12 to A-16</div>
+      <div class="accused-name">Rajesh Joshi, D.P. Sharma, Prince Kumar, A.K. Singh, Chanpreet Rayat</div>
+      <div class="accused-role">Alleged Goa fund conduits</div>
+      <div class="accused-detail">
+        <strong>CBI alleged:</strong> Acted as conduits for transferring Rs. 44.54 crores from Delhi to Goa through hawala/angadiya channels.<br><br>
+        <strong>Court found:</strong> None of them &ldquo;were participants in any meeting, discussion or interaction in which the alleged conspiracy to manipulate the DEP-21/22 is claimed to have been conceived&rdquo; (Para 1035). The entire money trail rested on inadmissible pauti (loose sheet) records from angadiya firms. The prosecution&rsquo;s own arithmetic didn&rsquo;t add up &mdash; applying their own witness&rsquo;s methodology produced Rs. 104 crores instead of the claimed Rs. 44.5 crores (Para 1029).
+      </div>
+    </div>
+
+    <div class="accused-card" onclick="toggleAccused(this)">
+      <span class="category-tag cat-business">Business</span>
+      <div class="accused-num">A-20</div>
+      <div class="accused-name">Amit Arora</div>
+      <div class="accused-role">Owner, M/S Buddy Retails</div>
+      <div class="accused-detail">
+        <strong>Court found:</strong> Absent from every conspiracy meeting (&ldquo;undisputed by the prosecution&rdquo;, Para 906). The Mahadev Liquors angle didn&rsquo;t feature in the original charge-sheet at all. The Punjab Government&rsquo;s denial of sanction to investigate the linked case was a &ldquo;decisive and fatal jolt&rdquo; to the theory (Para 913).
+      </div>
+    </div>
+
+    <div class="accused-card" onclick="toggleAccused(this)">
+      <span class="category-tag cat-intermediary">Intermediary</span>
+      <div class="accused-num">A-21 &amp; A-22</div>
+      <div class="accused-name">Vinod Chauhan &amp; Ashish Chand Mathur</div>
+      <div class="accused-role">Alleged Goa money conduits</div>
+      <div class="accused-detail">
+        <strong>CBI alleged:</strong> Transferred Rs. 25.50 crores to Goa through hawala. WhatsApp chats with a number attributed to Kejriwal found on A-21&rsquo;s phone.<br><br>
+        <strong>Court found:</strong> The pauti documents forming the money trail were inadmissible. CDRs showed contact but not content. The entire foundation of the alleged cash chain was speculative.
+      </div>
+    </div>
+
+    <div class="accused-card" onclick="toggleAccused(this)">
+      <span class="category-tag cat-business">Business</span>
+      <div class="accused-num">A-23</div>
+      <div class="accused-name">Sarath Chandra Reddy</div>
+      <div class="accused-role">Aurobindo Group</div>
+      <div class="accused-detail">
+        <strong>CBI alleged:</strong> Paid Rs. 14 crores to K. Kavitha through sham land deal; favoured with 5 retail zones despite policy restriction.<br><br>
+        <strong>Court found:</strong> &ldquo;This Court has failed to comprehend the basis on which A-23 has been arrayed as an accused.&rdquo; (Para 925). He was absent from all conspiracy meetings. Retail zones were awarded through an undisputedly valid public auction. The alleged &ldquo;quid pro quo&rdquo; rested on the &ldquo;post hoc ergo propter hoc&rdquo; fallacy &mdash; assuming that because one event followed another, the first caused the second (Para 868).
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== SECTION V: WHAT THE COURT FOUND ===== -->
+<section id="the-findings">
+  <span class="section-number">Section V</span>
+  <h2>What the Court Actually Found</h2>
+
+  <p>The court systematically examined each pillar of the prosecution&rsquo;s case. Here is what it found on each:</p>
+
+  <div class="finding">
+    <div class="finding-header">
+      <span class="finding-icon">1</span>
+      <span class="finding-title">Was the Policy Manipulated?</span>
+      <span class="finding-verdict verdict-rejected">Not Established</span>
+    </div>
+    <div class="finding-body">
+      <p>This was the prosecution&rsquo;s foundational allegation. The court dismantled it on several grounds:</p>
+
+      <p><strong>The 12% margin was not an &ldquo;abrupt increase.&rdquo;</strong> The first GoM draft had <em>no cap</em> on wholesale margins (just a 5% minimum floor). Setting a 12% flat rate actually <strong>curtailed flexibility</strong> rather than enlarging it. (Paras 198-204)</p>
+
+      <p><strong>The eligibility criteria contradicted the conspiracy.</strong> The turnover thresholds that the &ldquo;South Group&rdquo; allegedly introduced would have <em>disqualified</em> M/S Indospirits, the supposed beneficiary. As the court put it: &ldquo;Acceptance of the prosecution case would lead to the conclusion that the alleged beneficiaries introduced eligibility conditions that disqualified themselves.&rdquo; (Para 627)</p>
+
+      <p><strong>The 12% margin wasn&rsquo;t even profitable.</strong> Prosecution witnesses from the liquor industry testified that beer distribution at a 12% margin translated to Rs. 54/case against an actual cost of Rs. 108.8/case &mdash; a built-in loss. The court called the prosecution&rsquo;s claim of &ldquo;huge profits&rdquo; from this margin &ldquo;demonstrably erroneous, economically illiterate and legally unsustainable.&rdquo; (Para 357)</p>
+
+      <p><strong>The policy followed proper channels.</strong> It went through an Expert Committee, public consultations, Group of Ministers, Cabinet decisions, and the Lieutenant Governor&rsquo;s office. &ldquo;The material placed before the Court negates any suggestion of unilateralism, opacity or deviation from the established procedure.&rdquo; (Para 342)</p>
+
+      <p><strong>The LG was not bypassed.</strong> The prosecution alleged the LG was sidelined, but official records showed multiple meetings, the LG&rsquo;s suggestions being incorporated, and the LG&rsquo;s office endorsing the final policy. The then-LG orally denied some of this in testimony, but the court held contemporaneous official records override oral denial. (Paras 264-270)</p>
+    </div>
+  </div>
+
+  <div class="finding">
+    <div class="finding-header">
+      <span class="finding-icon">2</span>
+      <span class="finding-title">Was There a Criminal Conspiracy?</span>
+      <span class="finding-verdict verdict-rejected">Not Established</span>
+    </div>
+    <div class="finding-body">
+      <p><strong>The approver&rsquo;s story kept changing.</strong> The prosecution&rsquo;s chief approver, Dinesh Arora (PW-20), had his statement recorded <em>seven times</em> &mdash; a number the court said was unprecedented. Each subsequent statement introduced new allegations absent from earlier ones. The Rs. 30 lakhs bribe allegation didn&rsquo;t appear until the fourth statement. A new allegation about Rs. 1 crore delivery appeared in the <em>last</em> statement, naming a person not found in any charge sheet. (Paras 446-466, 1094)</p>
+
+      <p><strong>One accomplice can&rsquo;t corroborate another.</strong> Much of the prosecution&rsquo;s case relied on one tainted witness supporting another. The approvers and accomplice-like witnesses cited each other&rsquo;s accounts, but &ldquo;this is not independent corroboration; it is mutual reinforcement.&rdquo; (Para 882)</p>
+
+      <p><strong>Independent witnesses were not examined.</strong> At the key meeting where A-18 allegedly met the businessman Magunta, 10-12 other people were present. None were examined as witnesses. The court found this &ldquo;a serious gap.&rdquo; (Para 499)</p>
+
+      <p><strong>The timeline didn&rsquo;t add up.</strong> The prosecution claimed Rs. 10 crores in &ldquo;upfront money&rdquo; had been delivered by March 2021, but at the alleged conspiracy meeting in May 2021, one of the South Group members was still asking basic questions about the Delhi liquor market&rsquo;s profitability. (Para 533)</p>
+    </div>
+  </div>
+
+  <div class="finding">
+    <div class="finding-header">
+      <span class="finding-icon">3</span>
+      <span class="finding-title">Was There a Money Trail?</span>
+      <span class="finding-verdict verdict-rejected">Not Established</span>
+    </div>
+    <div class="finding-body">
+      <p>This was perhaps the prosecution&rsquo;s most dramatic allegation &mdash; hundreds of crores moved through hawala channels. The court found the entire edifice rested on legally inadmissible material:</p>
+
+      <p><strong>The pauti documents were inadmissible.</strong> The money trail rested primarily on &ldquo;pauti&rdquo; entries &mdash; informal records of angadiya (cash courier) firms. These were overwhelmingly &ldquo;loose sheets, photocopies, or isolated register pages, written in pencil, with no proof of regular maintenance&rdquo; (Para 1010). The court applied the Supreme Court&rsquo;s precedent from the famous <strong>Jain Hawala case</strong> (V.C. Shukla): such loose sheets cannot be treated as &ldquo;books of account&rdquo; and cannot alone establish liability. (Paras 1006-1009)</p>
+
+      <p><strong>The prosecution&rsquo;s own arithmetic didn&rsquo;t work.</strong> When the court applied the prosecution witness PW-180&rsquo;s own method of reading the pauti entries consistently, the numbers totalled approximately Rs. 104 crores &mdash; in &ldquo;stark and irreconcilable contrast&rdquo; to the prosecution&rsquo;s claimed figure of Rs. 44.5 crores. The court concluded: &ldquo;The prosecution&rsquo;s numerical conclusions are the result of selective extraction and truncation of the very records relied upon.&rdquo; (Paras 1029-1032)</p>
+
+      <p><strong>The money chain broke.</strong> Between Chennai (where payments were allegedly made) and Delhi (where funds allegedly re-emerged), the link was missing entirely. &ldquo;There is no evidence any Angadia or intermediary transferred Rs. 25 crores from Chennai to Delhi.&rdquo; (Para 711)</p>
+
+      <p><strong>The angadiya witnesses were accomplice-like.</strong> The cash couriers were themselves participants in the alleged mechanism of crime, yet were converted into prosecution witnesses instead of being treated as accused. (Para 1012-1014)</p>
+    </div>
+  </div>
+
+  <div class="finding">
+    <div class="finding-header">
+      <span class="finding-icon">4</span>
+      <span class="finding-title">What About Kejriwal Specifically?</span>
+      <span class="finding-verdict verdict-rejected">Not Established</span>
+    </div>
+    <div class="finding-body">
+      <p>The case against A-18 (Arvind Kejriwal) rested almost entirely on a single witness &mdash; PW-225 (Magunta Sreenivasulu Reddy) &mdash; who claimed a brief meeting on 16.03.2021 where Kejriwal allegedly asked for &ldquo;monetary funding.&rdquo;</p>
+
+      <p>The court found this witness was himself a participant in the alleged scheme (not an independent observer), making him an &ldquo;accomplice-like witness&rdquo; whose testimony requires independent corroboration. No such corroboration existed. (Paras 489-491)</p>
+
+      <p>The court listed what was missing (Para 507):</p>
+      <ul style="margin-left:1.5rem; margin-bottom:1rem; line-height:2;">
+        <li>No contemporaneous documents connecting him to the conspiracy</li>
+        <li>No file notings showing improper direction</li>
+        <li>No electronic communications</li>
+        <li>No financial transactions linking him to illegal funds</li>
+        <li>No digital evidence of his involvement</li>
+      </ul>
+
+      <p>Critically, the prosecution&rsquo;s own chief approver PW-20 &mdash; who claimed knowledge spanning the entire conspiracy &mdash; <strong>did not attribute any role to Kejriwal</strong>. &ldquo;His silence assumes significance and further weakens the case.&rdquo; (Para 508)</p>
+
+      <p>The court also noted: &ldquo;The consequences are even more serious where the person concerned holds a constitutional office. Arrest and prosecution in such circumstances have implications beyond the individual. If it is later found that such prosecution was unsupported by admissible material, the erosion of public trust is substantial.&rdquo; (Para 512)</p>
+    </div>
+  </div>
+
+  <div class="finding">
+    <div class="finding-header">
+      <span class="finding-icon">5</span>
+      <span class="finding-title">The Investigation Itself</span>
+      <span class="finding-verdict verdict-rejected">Seriously Criticized</span>
+    </div>
+    <div class="finding-body">
+      <p>The court made pointed observations about how the CBI conducted its investigation:</p>
+
+      <p><strong>Predetermined trajectory.</strong> &ldquo;What emerges is a troubling picture of an investigation steered by a preconceived outcome rather than by objective evaluation of evidence. Lawful administrative actions and policy decisions appear to have been selectively extracted, stripped of context, and artificially interlinked to manufacture an appearance of conspiracy.&rdquo; (Para 948)</p>
+
+      <p><strong>Ever-expanding net.</strong> The investigation &ldquo;appears to alter its focus mid-course and proceeds in an ever-expanding sweep, seemingly driven by the question of who all can be brought within its fold&rdquo; (Para 1062) &mdash; starting with a company, moving to small vendors, then to hawala operators, hotel owners, political volunteers, candidates, state office-bearers, and &ldquo;ultimately the national leadership.&rdquo;</p>
+
+      <p><strong>Misleading presentations.</strong> The court found multiple instances where the charge-sheets presented facts in misleading ways &mdash; wrong dates, implied continuity where none existed, and burying exculpatory legal opinions within 14,000+ emails on a CD rather than highlighting them. (Paras 316, 410, 420)</p>
+
+      <p><strong>Recommended disciplinary action.</strong> For A-1 (a bureaucrat), the court recommended &ldquo;departmental proceedings against the erring investigating officer for framing A-1 as an accused in the absence of any material against him.&rdquo; (Para 475)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION VI: THE VERDICT ===== -->
+<section id="the-verdict">
+  <span class="section-number">Section VI</span>
+  <h2>The Verdict, In the Court&rsquo;s Own Words</h2>
+
+  <p>Below are key passages from the order. These are the court&rsquo;s own words &mdash; not paraphrased or interpreted. The paragraph numbers reference the judgment text.</p>
+
+  <div class="court-quote">
+    This Court is left in no manner of doubt that the prosecution case does not disclose even the threshold of a prima facie suspicion, far less the &lsquo;grave suspicion&rsquo; mandated by settled principles of criminal jurisprudence for proceeding further. The Excise Policy case, as sought to be projected by the CBI, is wholly unable to survive judicial scrutiny and stands discredited in its entirety.
+    <span class="para-ref">Paragraph 1077</span>
+  </div>
+
+  <div class="court-quote">
+    To compel the accused to face the rigours of a full-fledged criminal trial in the stark absence of any legally admissible material connecting them to the alleged offences would not serve the ends of justice; it would instead constitute a manifest miscarriage of justice and an abuse of the criminal process.
+    <span class="para-ref">Paragraph 1077</span>
+  </div>
+
+  <div class="court-quote">
+    The theory of an overarching conspiracy, so emphatically projected, stands completely dismantled when tested against the evidentiary record.
+    <span class="para-ref">Paragraph 1078</span>
+  </div>
+
+  <div class="court-quote">
+    The prosecution has failed to place any material which, even prima facie, suggests that the DEP-21/22 was manipulated, altered, or engineered to confer any undue or unlawful benefit&hellip; the contemporaneous record clearly establishes that the policy was the outcome of a consultative and deliberative exercise, undertaken after engagement with relevant stakeholders and in adherence to the procedure prescribed under law.
+    <span class="para-ref">Paragraph 1079</span>
+  </div>
+
+  <div class="court-quote">
+    A cumulative appraisal of the record further reveals an investigative approach marked by an attempt to stitch together disparate fragments so as to create an impression of a vast and complex conspiracy, unsupported by legally admissible material. The investigation appears to have proceeded on a predetermined trajectory.
+    <span class="para-ref">Paragraph 1083</span>
+  </div>
+
+  <div class="court-quote">
+    The settled principles of evidence law exist precisely to ensure that criminal liability is founded on legally admissible material&hellip; and not on conjecture, or investigative imagination.
+    <span class="para-ref">Paragraph 1084</span>
+  </div>
+
+  <div class="ornament">&sect;</div>
+
+  <p>The judgment concludes by quoting Martin Luther King Jr. &mdash; &ldquo;Injustice anywhere is a threat to justice everywhere&rdquo; &mdash; and the Latin maxim <em>fiat justitia ruat caelum</em>: let justice be done though the heavens may fall.</p>
+</section>
+
+<!-- ===== SECTION VII: ISSUES FLAGGED ===== -->
+<section id="issues-flagged">
+  <span class="section-number">Section VII</span>
+  <h2>Issues the Court Flagged</h2>
+
+  <p>Even after discharging all accused, the court noted that &ldquo;the record still reflects certain matters of concern which ought not to remain unnoticed.&rdquo; These are not part of the discharge order itself, but are observations the court recorded for broader systemic attention.</p>
+
+  <div class="issue-flag">
+    <h4>1. Abuse of the Approver Mechanism</h4>
+    <p>The chief approver Dinesh Arora&rsquo;s statement was recorded on <strong>at least seven occasions</strong> over one and a half years &mdash; including at least four times <em>after</em> his confession under Section 164 CrPC. Each successive statement introduced new allegations absent from earlier ones.</p>
+    <p>The court condemned this as &ldquo;converting the exceptional mechanism of pardon into an <strong>instrument for narrative construction rather than truth discovery</strong>&rdquo; (Para 1101). The court invoked Article 21 (right to life and liberty) and India&rsquo;s obligations under the International Covenant on Civil and Political Rights to hold that the right to a fair investigation is constitutionally protected. (Paras 1102-1105)</p>
+  </div>
+
+  <div class="issue-flag">
+    <h4>2. The &ldquo;South Group&rdquo; Label</h4>
+    <p>The CBI referred to certain accused as the &ldquo;South Group&rdquo; based on their regional origin. The court called this &ldquo;wholly alien to the statutory framework governing criminal liability&rdquo; and a &ldquo;<strong>constitutional infirmity</strong> capable of undermining the fairness of the proceedings.&rdquo; (Paras 1114, 1122)</p>
+    <p>Citing the U.S. case <em>United States v. Cabrera</em>: &ldquo;Criminal trials must be about what the defendant did, not who the defendant is.&rdquo; (Para 1119). The court linked this to Articles 15 (non-discrimination) and 21 (fair procedure) of the Indian Constitution.</p>
+  </div>
+
+  <div class="issue-flag">
+    <h4>3. Investigating Election Spending</h4>
+    <p>The court held that the CBI had strayed into the constitutionally reserved domain of the Election Commission of India. Article 324 vests the ECI with exclusive authority over elections.</p>
+    <p>&ldquo;Investigations by the State police, the CBI, or the Enforcement Directorate <strong>cannot be initiated or sustained solely on allegations of election-funding irregularities</strong>. The exclusive prerogative to examine such allegations lies with the Election Commission of India.&rdquo; (Para 1052)</p>
+    <p>The court warned that permitting this would risk &ldquo;<strong>chilling legitimate political participation</strong>&rdquo; (Para 1065) and amount to &ldquo;the executive arrogating to itself a supervisory role over elections, a role which the Constitution has consciously denied to it.&rdquo; (Para 1050)</p>
+  </div>
+
+  <div class="issue-flag">
+    <h4>4. The PMLA Problem</h4>
+    <p>The court identified a &ldquo;grave and recurring dilemma&rdquo; with the Prevention of Money Laundering Act: PMLA proceedings often outpace the underlying (&ldquo;predicate&rdquo;) criminal case. People get arrested under PMLA before the foundational offence is even tested in court.</p>
+    <p>&ldquo;Where the predicate offence does not survive, the offence of money laundering cannot independently subsist. If the foundation crumbles, the superstructure must necessarily fall.&rdquo; (Para 1126)</p>
+    <p>The court made a remarkable disclosure: it was itself a witness to a case where &ldquo;the proceedings relating to money laundering have reached the final stage of arguments on charge, whereas, in the predicate offence, the investigation is still underway to determine whether any offence has been committed at all.&rdquo; (Para 1125)</p>
+    <p>&ldquo;Liberty, once curtailed, cannot be meaningfully restored by a subsequent acquittal, nor can the passage of time compensate for the loss occasioned by unwarranted pre-trial detention.&rdquo; (Para 1128)</p>
+  </div>
+
+  <div class="issue-flag">
+    <h4>5. Segregation of Relied/Unrelied Documents</h4>
+    <p>The court flagged a systemic concern: investigating agencies classify seized documents as &ldquo;relied&rdquo; or &ldquo;unrelied,&rdquo; and at the charge stage, the accused cannot invoke unrelied documents even if they are exculpatory. The court illustrated this with a hypothetical: an alibi on a seized digital device being placed in the &ldquo;unrelied&rdquo; category, effectively suppressing it. (Paras 1106-1113)</p>
+    <p>&ldquo;Investigation is not a process of gathering only incriminating material; it is an effort to uncover the truth.&rdquo; (Para 1109)</p>
+  </div>
+</section>
+
+<!-- ===== SECTION VIII: WHAT IT MEANS ===== -->
+<section id="what-it-means">
+  <span class="section-number">Section VIII</span>
+  <h2>So What Does This Mean?</h2>
+
+  <h3>The Facts</h3>
+
+  <p><strong>This was a discharge, not an acquittal.</strong> That is factually correct. A discharge happens at the pre-trial &ldquo;charge&rdquo; stage under Section 227 of the Code of Criminal Procedure. An acquittal happens after a full trial. These are different legal outcomes at different stages.</p>
+
+  <p><strong>The CBI can appeal.</strong> A discharge order can be challenged before the Delhi High Court. If the High Court finds the trial court erred, it can order charges to be framed. This legal avenue remains open.</p>
+
+  <h3>The Context</h3>
+
+  <p>However, several things are worth noting:</p>
+
+  <p><strong>This wasn&rsquo;t a routine discharge.</strong> In most discharge cases, the court identifies a gap or two and concludes the prosecution hasn&rsquo;t made out its case. Here, the court conducted what it described as an exhaustive review of every single prosecution witness &mdash; and found nothing at any stage. The language used (&ldquo;discredited in its entirety,&rdquo; &ldquo;completely dismantled,&rdquo; &ldquo;investigative imagination&rdquo;) is far stronger than typical discharge orders.</p>
+
+  <p><strong>The court rejected the case at the lowest evidentiary bar.</strong> At the charge stage, the prosecution only needs to show a &ldquo;prima facie case&rdquo; &mdash; essentially, that the evidence, taken at face value, creates a reasonable suspicion. The court found the prosecution couldn&rsquo;t even clear this threshold, let alone the higher standard of &ldquo;proof beyond reasonable doubt&rdquo; required at trial.</p>
+
+  <p><strong>The court went beyond dismissing &mdash; it flagged systemic concerns.</strong> This is unusual. Even after discharge, the court devoted dozens of pages to issues it felt demanded attention: abuse of the approver mechanism, regional labelling, investigative overreach into election spending, and the structural problem with PMLA proceedings. Courts typically don&rsquo;t do this unless they believe the case revealed serious institutional problems.</p>
+
+  <p><strong>Several accused spent significant time in custody.</strong> Some of the accused were arrested and held for extended periods before this order. The court noted: &ldquo;Liberty, once curtailed, cannot be meaningfully restored by a subsequent acquittal, nor can the passage of time compensate for the loss occasioned by unwarranted pre-trial detention.&rdquo; (Para 1128)</p>
+
+  <h3>The Bottom Line</h3>
+
+  <p>Whether you call it a discharge or an acquittal, here is what the 549-page order says: a court examined the CBI&rsquo;s case &mdash; built over two years, across five charge sheets, with nearly 300 witnesses &mdash; and found it &ldquo;wholly unable to survive judicial scrutiny.&rdquo;</p>
+
+  <p>The case may yet continue if the CBI appeals. But as of this order, the court&rsquo;s assessment is unambiguous: there was not even a prima facie case.</p>
+
+  <div class="court-quote">
+    This Court has no hesitation in holding that the material placed on record does not disclose even a prima facie case, much less any grave suspicion, against any of the accused persons.
+    <span class="para-ref">Paragraph 1085</span>
+  </div>
+
+  <div class="ornament">&sect;&sect;&sect;</div>
+</section>
+
+</div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <p>This explainer is based on the <a href="https://www.livelaw.in/pdf_upload/cbi-vs-kuldeep-singh-delhi-excise-policy-case-order-on-charge-585083.pdf" target="_blank" rel="noopener">Order on Charge dated 27.02.2026</a> by Sh. Jitendra Singh,<br>
+    Special Judge (PC Act) CBI-23, Rouse Avenue Court Complex, New Delhi.<br>
+    CBI Case No. 56/2022 &middot; CBI vs. Kuldeep Singh &amp; Others &middot; 549 pages.</p>
+    <p style="margin-top: 1rem; color: #666;">All quotes are from the judgment text with paragraph references provided.<br>
+    This is an objective summary, not legal advice. <a href="https://www.livelaw.in/pdf_upload/cbi-vs-kuldeep-singh-delhi-excise-policy-case-order-on-charge-585083.pdf" target="_blank" rel="noopener">Read the full order</a> for complete context.</p>
+
+    <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #333;">
+      <p style="color: #888; font-size: 0.65rem; line-height: 1.8;">
+        <strong style="color: var(--gold-light);">AI-Generated Content</strong><br>
+        This entire explainer was generated by <a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a> (Anthropic&rsquo;s Claude Opus 4.6) with <strong>no human editorial intervention</strong>.<br>
+        The AI was given the 549-page judgment PDF and the following prompt:<br>
+        <em style="color: #999;">&ldquo;Create an explainer similar to Paras Chopra&rsquo;s explainers. Go through this 549-page judgment and then create an explainer which tells exactly what happened in the case. Be objective; you don&rsquo;t have to take one side or the other, just a very objective explanation of it, and also addressing the core idea of acquittal versus discharge. That should be the center on which this whole blog is based. Keep the language very neutral, but at the same time, very easy to understand, very common man.&rdquo;</em>
+      </p>
+      <p style="color: #666; font-size: 0.6rem; margin-top: 0.75rem;">
+        Structure inspired by <a href="https://paraschopra.github.io/explainers/" target="_blank" rel="noopener">Paras Chopra&rsquo;s interactive explainers</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+  // Stage descriptions
+  const stageData = [
+    {
+      title: 'FIR (First Information Report)',
+      desc: 'A complaint is filed with the police or CBI. This is the starting point of any criminal case. In this case, the FIR was registered on 17.08.2022 based on a complaint from the Ministry of Home Affairs.'
+    },
+    {
+      title: 'Investigation',
+      desc: 'The investigating agency (here, CBI) collects evidence \u2014 examines witnesses, seizes documents, conducts searches, makes arrests. This phase can last months or years. The CBI investigated this case from August 2022 to July 2024, filing five charge sheets.'
+    },
+    {
+      title: 'Charge Sheet Filed',
+      desc: 'The investigating agency presents its findings to the court in a formal document called the charge sheet (or "final report"). It lists the accused, the evidence, and the offences alleged. If the agency finds insufficient evidence, it can file a "closure report" instead. Here, the CBI filed five charge sheets naming 23 accused persons.'
+    },
+    {
+      title: 'Charge Hearing (Order on Charge)',
+      desc: 'THIS IS WHERE THE DELHI EXCISE POLICY CASE ENDED. The judge examines all prosecution material and asks: "Is there enough here to put these people through a full trial?" The standard is "grave suspicion" \u2014 not proof beyond doubt, but a reasonable basis for suspicion. If even this low bar isn\u2019t met, the accused are DISCHARGED. The case never reaches trial. If the bar is met, charges are "framed" and the case proceeds to trial.'
+    },
+    {
+      title: 'Trial',
+      desc: 'THE CASE NEVER REACHED THIS STAGE. Had charges been framed, a full trial would have followed: prosecution presents evidence, defence cross-examines witnesses, both sides argue, and the judge evaluates everything. This can take years. The standard for conviction is "proof beyond reasonable doubt" \u2014 a much higher bar.'
+    },
+    {
+      title: 'Verdict (Acquittal or Conviction)',
+      desc: 'THE CASE NEVER REACHED THIS STAGE. After a full trial, the judge delivers a verdict: either conviction (guilty) or acquittal (not guilty). An acquittal after trial means the prosecution failed to prove its case beyond reasonable doubt. Since this case was discharged at the charge stage, there was no trial and therefore no acquittal or conviction.'
+    }
+  ];
+
+  function setStage(index) {
+    const nodes = document.querySelectorAll('.stage-node');
+    const fill = document.getElementById('progressFill');
+    const desc = document.getElementById('stageDesc');
+
+    nodes.forEach((node, i) => {
+      node.classList.remove('passed', 'current', 'active');
+      if (i < index) node.classList.add('passed');
+      if (i === index) node.classList.add('current');
+    });
+
+    const pct = (index / (nodes.length - 1)) * 100;
+    fill.style.width = pct + '%';
+
+    const data = stageData[index];
+    desc.innerHTML = '<strong>' + data.title + '</strong> \u2014 ' + data.desc;
+  }
+
+  // Accused card toggle
+  function toggleAccused(card) {
+    const wasExpanded = card.classList.contains('expanded');
+    document.querySelectorAll('.accused-card').forEach(c => c.classList.remove('expanded'));
+    if (!wasExpanded) {
+      card.classList.add('expanded');
+      setTimeout(() => {
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 50);
+    }
+  }
+
+  // Smooth scroll for TOC links
+  document.querySelectorAll('.toc a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Initialize stage 3 (charge hearing)
+  setStage(3);
+</script>
+
+</body>
+</html>
