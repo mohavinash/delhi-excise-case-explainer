@@ -99,8 +99,32 @@
   header {
     background: var(--navy);
     color: #fff;
-    padding: 4rem 0 3rem;
+    min-height: 100vh;
+    padding: 4rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
     border-bottom: 4px solid var(--gold);
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    border-bottom: 2px solid var(--gold-light);
+    border-right: 2px solid var(--gold-light);
+    transform: translateX(-50%) rotate(45deg);
+    opacity: 0.5;
+    animation: bounce-down 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce-down {
+    0%, 100% { transform: translateX(-50%) rotate(45deg) translateY(0); }
+    50% { transform: translateX(-50%) rotate(45deg) translateY(6px); }
   }
 
   header .container {
@@ -139,20 +163,6 @@
     color: #888;
     font-family: 'Courier New', monospace;
     letter-spacing: 0.05em;
-  }
-
-  /* ===== COVER IMAGE ===== */
-  .cover-image {
-    max-width: var(--max-w);
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
-  .cover-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-bottom: 4px solid var(--gold);
   }
 
   /* ===== TABLE OF CONTENTS ===== */
@@ -196,12 +206,24 @@
     color: var(--navy);
     text-decoration: none;
     font-size: 0.95rem;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s;
+    position: relative;
   }
 
-  .toc a:hover {
-    border-color: var(--gold);
+  .toc a::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-out;
+  }
+
+  .toc a:hover::after {
+    transform: scaleX(1);
   }
 
   /* ===== SECTIONS ===== */
@@ -424,7 +446,12 @@
     border: 2px solid var(--border);
     border-radius: 4px;
     padding: 1.5rem;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  }
+
+  .comparison-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
 
   .comparison-card.discharge {
@@ -491,12 +518,30 @@
     bottom: 0;
     width: 2px;
     background: var(--border);
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: transform 1.8s ease-out;
+  }
+
+  .timeline.anim-visible::before {
+    transform: scaleY(1);
   }
 
   .timeline-item {
     position: relative;
     margin-bottom: 1.75rem;
     padding-bottom: 0.5rem;
+    padding-left: 0.75rem;
+    border-radius: 0 4px 4px 0;
+    transition: background 0.2s ease-out;
+  }
+
+  .timeline-item:hover {
+    background: var(--highlight);
+  }
+
+  .timeline-item:hover .timeline-dot {
+    transform: scale(1.3);
   }
 
   .timeline-dot {
@@ -508,6 +553,7 @@
     border-radius: 50%;
     background: var(--bg);
     border: 2px solid var(--border);
+    transition: transform 0.2s ease-out;
   }
 
   .timeline-item.major .timeline-dot {
@@ -591,18 +637,25 @@
   }
 
   .accused-detail {
-    display: none;
-    margin-top: 0.75rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid var(--border-light);
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 1px solid transparent;
     font-size: 0.8rem;
     line-height: 1.6;
     color: var(--text-secondary);
     text-align: justify;
+    transition: max-height 0.4s ease-out, opacity 0.3s ease-out, margin-top 0.3s ease-out, padding-top 0.3s ease-out, border-color 0.3s ease-out;
   }
 
   .accused-card.expanded .accused-detail {
-    display: block;
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top-color: var(--border-light);
   }
 
   .category-tag {
@@ -770,6 +823,102 @@
     font-size: 1.5rem;
     letter-spacing: 0.5rem;
   }
+
+  /* ===== SCROLL REVEAL ===== */
+  .anim-ready {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .anim-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* PDF evidence: gold glow (one-shot, settles to faint halo) */
+  @keyframes evidence-glow {
+    0%   { box-shadow: 0 0 0 0 rgba(184, 134, 11, 0); }
+    40%  { box-shadow: 0 0 20px 4px rgba(184, 134, 11, 0.35); }
+    100% { box-shadow: 0 0 8px 2px rgba(184, 134, 11, 0.15); }
+  }
+
+  .pdf-evidence.anim-visible {
+    animation: evidence-glow 1.2s ease-out 0.6s both;
+  }
+
+  /* Stat box cascade: gentle pop-up */
+  .stat-box.anim-ready {
+    transform: translateY(16px) scale(0.97);
+  }
+
+  .stat-box.anim-visible {
+    transform: translateY(0) scale(1);
+  }
+
+  /* Timeline dot pop */
+  @keyframes dot-pop {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.4); }
+    100% { transform: scale(1); }
+  }
+
+  .timeline-item.anim-visible .timeline-dot {
+    animation: dot-pop 0.4s ease-out;
+  }
+
+  /* Reading progress bar */
+  .reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: transparent;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  .reading-progress-bar {
+    height: 100%;
+    background: var(--gold);
+    transform-origin: left;
+    transform: scaleX(0);
+    will-change: transform;
+  }
+
+  /* ===== ACCESSIBILITY: REDUCED MOTION ===== */
+  @media (prefers-reduced-motion: reduce) {
+    .anim-ready {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+
+    .timeline::before {
+      transition: none !important;
+      transform: scaleY(1) !important;
+    }
+
+    .pdf-evidence.anim-visible,
+    .timeline-item.anim-visible .timeline-dot {
+      animation: none !important;
+    }
+
+    header::after {
+      animation: none !important;
+    }
+
+    .accused-detail,
+    .comparison-card,
+    .reading-progress-bar {
+      transition: none !important;
+    }
+
+    .toc a::after {
+      transition: none !important;
+    }
+  }
 </style>
 </head>
 <body>
@@ -786,11 +935,6 @@
 
 <main>
 <article>
-
-<!-- ===== COVER IMAGE ===== -->
-<div class="cover-image">
-  <img src="cover.jpg" alt="Delhi Excise Policy Case Explained - CBI Investigation">
-</div>
 
 <!-- ===== TABLE OF CONTENTS ===== -->
 <div class="container">
@@ -1669,6 +1813,158 @@
 
   // Initialize stage 3 (charge hearing)
   setStage(3);
+
+  // ===== MICRO-INTERACTIONS =====
+  (function() {
+    // --- Reading Progress Bar ---
+    var progressWrap = document.createElement('div');
+    progressWrap.className = 'reading-progress';
+    var progressBar = document.createElement('div');
+    progressBar.className = 'reading-progress-bar';
+    progressWrap.appendChild(progressBar);
+    document.body.appendChild(progressWrap);
+
+    window.addEventListener('scroll', function() {
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = docHeight > 0 ? window.scrollY / docHeight : 0;
+      progressBar.style.transform = 'scaleX(' + Math.min(progress, 1) + ')';
+    }, { passive: true });
+
+    // --- Scroll-Reveal System ---
+    var mainSelectors = '.court-quote, section h2, .finding, .issue-flag, .comparison-card, .sidenote, .toc';
+    var mainEls = document.querySelectorAll(mainSelectors);
+    var pdfEls = document.querySelectorAll('.pdf-evidence');
+    var statBoxes = document.querySelectorAll('.stat-box');
+    var vh = window.innerHeight;
+
+    // Only animate elements below the initial viewport
+    mainEls.forEach(function(el) {
+      if (el.getBoundingClientRect().top >= vh) {
+        el.classList.add('anim-ready');
+      }
+    });
+    pdfEls.forEach(function(el) {
+      if (el.getBoundingClientRect().top >= vh) {
+        el.classList.add('anim-ready');
+      }
+    });
+    statBoxes.forEach(function(el) {
+      if (el.getBoundingClientRect().top >= vh) {
+        el.classList.add('anim-ready');
+      }
+    });
+
+    // Timeline items get anim-ready but are NOT observed individually
+    document.querySelectorAll('.timeline-item').forEach(function(el) {
+      if (el.getBoundingClientRect().top >= vh) {
+        el.classList.add('anim-ready');
+      }
+    });
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+
+        // Stat-row: stagger children
+        if (el.classList.contains('stat-row')) {
+          var boxes = el.querySelectorAll('.stat-box.anim-ready');
+          boxes.forEach(function(box, i) {
+            setTimeout(function() {
+              box.classList.add('anim-visible');
+            }, i * 80);
+          });
+          setTimeout(function() { countUpStats(el); }, boxes.length * 80 + 100);
+          observer.unobserve(el);
+          return;
+        }
+
+        // Timeline: line draw + stagger items
+        if (el.classList.contains('timeline')) {
+          el.classList.add('anim-visible');
+          var items = el.querySelectorAll('.timeline-item.anim-ready');
+          items.forEach(function(item, i) {
+            setTimeout(function() { item.classList.add('anim-visible'); }, (i + 1) * 250);
+          });
+          observer.unobserve(el);
+          return;
+        }
+
+        // Court-quote: stagger adjacent pdf-evidence 200ms later
+        if (el.classList.contains('court-quote')) {
+          el.classList.add('anim-visible');
+          var next = el.nextElementSibling;
+          if (next && next.classList.contains('pdf-evidence') && next.classList.contains('anim-ready')) {
+            setTimeout(function() {
+              next.classList.add('anim-visible');
+            }, 200);
+          }
+          observer.unobserve(el);
+          return;
+        }
+
+        el.classList.add('anim-visible');
+        observer.unobserve(el);
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    // Observe main elements (only those with anim-ready)
+    mainEls.forEach(function(el) {
+      if (el.classList.contains('anim-ready')) observer.observe(el);
+    });
+
+    // Observe stat-rows as containers (not individual boxes)
+    document.querySelectorAll('.stat-row').forEach(function(row) {
+      if (row.getBoundingClientRect().top >= vh) observer.observe(row);
+    });
+
+    // Observe timeline as container (items staggered from within)
+    document.querySelectorAll('.timeline').forEach(function(tl) {
+      if (tl.getBoundingClientRect().top >= vh) observer.observe(tl);
+    });
+
+    // PDF evidence is triggered via court-quote handler, not directly observed
+
+    // --- Number Count-Up ---
+    function countUpStats(container) {
+      var numbers = container.querySelectorAll('.stat-number');
+      numbers.forEach(function(numEl) {
+        var text = numEl.textContent.trim();
+        var prefix = '';
+        var target;
+
+        if (text.charAt(0) === '~') {
+          prefix = '~';
+          target = parseInt(text.slice(1), 10);
+        } else {
+          target = parseInt(text, 10);
+        }
+
+        if (isNaN(target)) return;
+
+        var duration = 800;
+        var startTime = null;
+
+        function easeOutCubic(t) {
+          return 1 - Math.pow(1 - t, 3);
+        }
+
+        function animate(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var current = Math.round(easeOutCubic(progress) * target);
+          numEl.textContent = prefix + current;
+          if (progress < 1) requestAnimationFrame(animate);
+        }
+
+        numEl.textContent = prefix + '0';
+        requestAnimationFrame(animate);
+      });
+    }
+  })();
 </script>
 
 </body>
